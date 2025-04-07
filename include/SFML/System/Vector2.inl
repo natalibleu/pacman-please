@@ -28,7 +28,7 @@
 #include <SFML/System/Vector2.hpp> // NOLINT(misc-header-include-cycle)
 
 #include <cassert>
-
+#include <cmath>
 
 namespace sf
 {
@@ -62,6 +62,11 @@ constexpr T Vector2<T>::lengthSquared() const
     return dot(*this);
 }
 
+template<typename T>
+T Vector2<T>::length() const
+{
+    return std::sqrt(lengthSquared());
+}
 
 ////////////////////////////////////////////////////////////
 template <typename T>

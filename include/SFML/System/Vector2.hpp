@@ -86,7 +86,7 @@ public:
     /// If you are not interested in the actual length, but only in comparisons, consider using `lengthSquared()`.
     ///
     ////////////////////////////////////////////////////////////
-    [[nodiscard]] SFML_SYSTEM_API T length() const;
+    [[nodiscard]] T length() const;
 
     ////////////////////////////////////////////////////////////
     /// \brief Square of vector's length.

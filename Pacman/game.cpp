@@ -1,12 +1,14 @@
-#include <SFML/Graphics.hpp>
 #include "Map.h"
 #include "Pacman.h"
-#include <iostream>
+
+#include <SFML/Graphics.hpp>
 
 int main()
 {
     //creating a window
     sf::RenderWindow window(sf::VideoMode({ 672,672 }), "Pacman");
+
+    sf::Clock clock;
 
     //speed of pacman
    // window.setFramerateLimit(200);
@@ -23,9 +25,11 @@ int main()
             if (event->is<sf::Event::Closed>())
                 window.close();
         }
-        
+
+        sf::Time elapsedTime = clock.restart();
+
         //implementing functions
-        pacman.Move();
+        pacman.Move(elapsedTime.asSeconds());
         window.clear();
         map.DrawMap(0, 0, window);
         pacman.DrawPacman(window);
