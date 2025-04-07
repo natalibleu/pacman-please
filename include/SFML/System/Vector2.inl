@@ -62,11 +62,11 @@ constexpr T Vector2<T>::lengthSquared() const
     return dot(*this);
 }
 
-template<typename T>
-T Vector2<T>::length() const
-{
-    return std::sqrt(lengthSquared());
-}
+//template<typename T>
+//T Vector2<T>::length() const
+//{
+//    return std::sqrt(lengthSquared());
+//}
 
 ////////////////////////////////////////////////////////////
 template <typename T>
