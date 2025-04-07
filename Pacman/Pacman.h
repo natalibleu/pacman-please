@@ -29,10 +29,7 @@ private:
     // How long it takes to move between tiles.
     float interpolationTime = 0.0f;
     float interpolationTimer = 0.0f;
-    float moveSpeed = 90.0f;
-
-    // Check to see if pacman can move to a tile.
-    bool CanMoveTo(const sf::Vector2f& tile);
+    float moveSpeed = 180.0f;
 
     // Move packman towards the next tile.
     // Return true if pacman reached the next tile.

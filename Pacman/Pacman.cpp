@@ -46,18 +46,26 @@ sf::Vector2f GetNextTile(MoveDirection dir)
     return { 0, 0 };
 }
 
-// Return true if the tile is blocked
-bool CanMove(const sf::Vector2f& p)
+sf::Vector2f WrapCoords(const sf::Vector2f& p)
 {
+    float sw = static_cast<float>(screenWidth);
+    float sh = static_cast<float>(screenHeight);
+
+    return { std::fmod(p.x + sw, sw), std::fmod(p.y + sh, sh) };
+}
+
+// Return true if the tile is not blocked
+bool CanMove(sf::Vector2f p)
+{
+    p = WrapCoords(p); // Wrap-around.
+
     int c = static_cast<int>(p.x) / blockSize;
     int r = static_cast<int>(p.y) / blockSize;
-
-    // Check grid bounds.
-    if (r < 0 || r >= rows || c < 0 || c >= columns) return false;
 
     // Grid cells with a # are walls.
     return maze[r][c] != '#';
 }
+
 
 bool Pacman::MoveTo(float deltaTime)
 {
@@ -67,7 +75,7 @@ bool Pacman::MoveTo(float deltaTime)
     {
         float t = std::min(1.0f, interpolationTimer / interpolationTime);
         sf::Vector2f newPosition = currentTile + t * (nextTile - currentTile);
-        pacmanSprite.setPosition(newPosition);
+        pacmanSprite.setPosition(WrapCoords(newPosition));
     }
 
     return interpolationTimer >= interpolationTime;
@@ -86,19 +94,22 @@ void Pacman::Move(float deltaTime)
         nextMoveDirection = MoveDirection::Right;
 
     // Move pacman towards the next tile.
-    if (MoveTo(deltaTime) || nextMoveDirection != currentMoveDirection)
+    if (MoveTo(deltaTime))
     {
-        currentTile = nextTile;
-        // Check if pacman can move to the next tile.
-        sf::Vector2f desiredTile = GetNextTile(nextMoveDirection);
-        if (CanMove(currentTile + desiredTile))
+        currentTile = WrapCoords(nextTile);
+        if (CanMove(currentTile + GetNextTile(nextMoveDirection)))
         {
-            nextTile = currentTile + desiredTile;
-
-            interpolationTime = (nextTile - pacmanSprite.getPosition()).length() / moveSpeed;
-            interpolationTimer = 0.0f;
+            // Change direction.
+            nextTile = currentTile + GetNextTile(nextMoveDirection);
             currentMoveDirection = nextMoveDirection;
         }
+        else if (CanMove(currentTile + GetNextTile(currentMoveDirection)))
+        {
+            nextTile = currentTile + GetNextTile(currentMoveDirection);
+        }
+
+        interpolationTime = (nextTile - pacmanSprite.getPosition()).length() / moveSpeed;
+        interpolationTimer = 0.0f;
     }
 }
 
