@@ -10,14 +10,17 @@ void Food::DrawFood(sf::RenderWindow& window)
 		{
 			if (maze[i][j] == '.')
 			{
-				foodSprite.setPosition(sf::Vector2f(static_cast<float>(j * blockSize),
-					static_cast<float>(i * blockSize)));
+				float x = static_cast<float>(j * blockSize);
+				float y = static_cast<float>(i * blockSize);
+
+				foodSprite.setPosition(sf::Vector2f(x, y));
+
 				window.draw(foodSprite);
 			}
 		}
 	}
 }
 
-Food::Food() : foodTexture("assets/food.png"), foodSprite(foodTexture)
+Food::Food() : foodTexture("assets/food16.png"), foodSprite(foodTexture)
 {
 }
