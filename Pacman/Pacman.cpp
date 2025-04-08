@@ -63,7 +63,7 @@ bool CanMove(sf::Vector2f p)
     int r = static_cast<int>(p.y) / blockSize;
 
     // Grid cells with a # are walls.
-    return maze[r][c] != '#';
+    return maze[r][c] != '#' && maze[r][c] != '=';
 }
 
 

@@ -1,5 +1,6 @@
 #include "Map.h"
 #include "Pacman.h"
+#include "Food.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -16,6 +17,7 @@ int main()
     //making the objects
     Map map;
     Pacman pacman;
+    Food food;
 
     //keeping the window on
     while (window.isOpen())
@@ -33,6 +35,7 @@ int main()
         window.clear();
         map.DrawMap(0, 0, window);
         pacman.DrawPacman(window);
+        food.DrawFood(window);
         window.display();
     }
 }
