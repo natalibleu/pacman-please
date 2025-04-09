@@ -30,7 +30,10 @@
     <ClCompile Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Food.cpp">
+    <ClCompile Include="Pellets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Energizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +47,10 @@
     <ClInclude Include="Pacman.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Food.h">
+    <ClInclude Include="Pellets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Energizer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

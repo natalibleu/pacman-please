@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "Pacman.h"
-#include "Food.h"
+#include "Pellets.h"
+#include "Energizer.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -17,7 +18,8 @@ int main()
     //making the objects
     Map map;
     Pacman pacman;
-    Food food;
+    Pellets pellet;
+    Energizer energizer;
 
     //keeping the window on
     while (window.isOpen())
@@ -34,8 +36,9 @@ int main()
         pacman.Move(elapsedTime.asSeconds());
         window.clear();
         map.DrawMap(0, 0, window);
+        pellet.DrawPellets(window);
+        energizer.DrawEnergizer(window);
         pacman.DrawPacman(window);
-        food.DrawFood(window);
         window.display();
     }
 }

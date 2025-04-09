@@ -144,14 +144,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Constants.h" />
-    <ClCompile Include="Food.cpp" />
+    <ClCompile Include="Energizer.cpp" />
+    <ClCompile Include="Pellets.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Ghosts.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Pacman.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Food.h" />
+    <ClInclude Include="Energizer.h" />
+    <ClInclude Include="Pellets.h" />
     <ClInclude Include="Ghosts.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Pacman.h" />
