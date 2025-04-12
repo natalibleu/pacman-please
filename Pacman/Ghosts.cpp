@@ -1,18 +1,10 @@
 #include "Ghosts.h"
 
-void Ghosts::Chase()
+void Ghosts::Move(float deltaTime)
 {
-	//chases pacman
-	//DIFFERENT FOR ALL GHOSTS
+
 }
 
-void Ghosts::Scatter()
+Ghosts::Ghosts()
 {
-	//ghosts give up the chase for a few seconds and head for their respective home corners
-}
-
-void Ghosts::Frightened()
-{
-	//when pacman eats the energizer
-	//switching colors, vulnerable
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-class Pellets : void Food
+class Pellets 
 {
 private:
 	int collectedFood = 0;

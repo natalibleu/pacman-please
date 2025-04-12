@@ -143,20 +143,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Blinky.cpp" />
     <ClCompile Include="Constants.h" />
     <ClCompile Include="Energizer.cpp" />
+    <ClCompile Include="Inky.cpp" />
     <ClCompile Include="Pellets.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Ghosts.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Pacman.cpp" />
+    <ClCompile Include="Pinky.cpp" />
+    <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Blinky.h" />
+    <ClInclude Include="Clyde.h" />
     <ClInclude Include="Energizer.h" />
+    <ClInclude Include="Inky.h" />
+    <ClInclude Include="LoadSprite.h" />
     <ClInclude Include="Pellets.h" />
     <ClInclude Include="Ghosts.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Pacman.h" />
+    <ClInclude Include="Pinky.h" />
+    <ClInclude Include="Score.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

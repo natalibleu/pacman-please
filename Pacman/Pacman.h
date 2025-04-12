@@ -31,12 +31,19 @@ private:
     float interpolationTimer = 0.0f;
     float moveSpeed = 180.0f;
 
+    float animationTimer = 0.0f;
+    float animationEndTime = 0.1f; // seconds per frame
+    int currentFrame = 0;
+
+    void UpdateAnimation(float deltaTime);
+
     // Move packman towards the next tile.
     // Return true if pacman reached the next tile.
     bool MoveTo(float deltaTime);
 
 public:
-    void EatFruits();
+    void EatFruits(sf::Vector2f p);
+    bool HasEatenFruit(sf::Vector2f tile);
     void EatGhost();
     void Move(float deltaTime);
     void DrawPacman(sf::RenderWindow& window);

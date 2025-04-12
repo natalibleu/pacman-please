@@ -2,6 +2,8 @@
 #include "Pacman.h"
 #include "Pellets.h"
 #include "Energizer.h"
+#include "Score.h"
+#include "Ghosts.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -13,10 +15,11 @@ int main()
     sf::Clock clock;
 
     //speed of pacman
-   // window.setFramerateLimit(200);
+    //window.setFramerateLimit(200);
     
     //making the objects
     Map map;
+    Score score;
     Pacman pacman;
     Pellets pellet;
     Energizer energizer;
@@ -39,6 +42,9 @@ int main()
         pellet.DrawPellets(window);
         energizer.DrawEnergizer(window);
         pacman.DrawPacman(window);
+
+        score.UpdateScore(window);
+
         window.display();
     }
 }

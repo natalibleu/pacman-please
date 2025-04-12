@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-class Energizer : void Food
+class Energizer 
 {
 private:
 	sf::Texture energizerTexture;
