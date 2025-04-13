@@ -189,7 +189,6 @@ void Pacman::Die()
 
 Pacman::Pacman() : pacmanTexture("assets/Pacman.png"), pacmanSprite(pacmanTexture, sf::IntRect{ {0,0}, {32,32} })
 {
-    //beginnig position when spawned
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)

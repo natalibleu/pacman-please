@@ -33,4 +33,5 @@ void Pellets::DrawPellets(sf::RenderWindow& window)
 
 Pellets::Pellets() : pelletsTexture("assets/food16.png"), pelletsSprite(pelletsTexture)
 {
+
 }

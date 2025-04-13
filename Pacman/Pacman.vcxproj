@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Blinky.cpp" />
+    <ClCompile Include="Clyde.cpp" />
     <ClCompile Include="Constants.h" />
     <ClCompile Include="Energizer.cpp" />
     <ClCompile Include="Inky.cpp" />
@@ -160,7 +161,6 @@
     <ClInclude Include="Clyde.h" />
     <ClInclude Include="Energizer.h" />
     <ClInclude Include="Inky.h" />
-    <ClInclude Include="LoadSprite.h" />
     <ClInclude Include="Pellets.h" />
     <ClInclude Include="Ghosts.h" />
     <ClInclude Include="Map.h" />

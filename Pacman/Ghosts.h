@@ -5,10 +5,13 @@
 class Ghosts
 {
 private:
-	float x, y;
+	// The tile pacman is currently in.
+	sf::Vector2f currentTile;
+	// The tile pacman is moving to.
+	sf::Vector2f nextTile;
 
 public:
-	Ghosts();
 	void Move(float deltaTime);
+	void MapSearch(char a, sf::Sprite& sprite);
 };
 
