@@ -10,7 +10,9 @@ sf::Vector2f WrapCoords(const sf::Vector2f& p)
 
     return { std::fmod(p.x + sw, sw), std::fmod(p.y + sh, sh) };
 }
-sf::Vector2i ConvertCoordinates(sf::Vector2f p) {
+
+sf::Vector2i ConvertCoordinates(sf::Vector2f p) 
+{
 
     p = WrapCoords(p);
 
@@ -76,13 +78,10 @@ sf::Vector2f GetNextTile(MoveDirection dir)
 // Return true if the tile is not blocked
 bool CanMove(sf::Vector2f p)
 {
-    p = WrapCoords(p); // Wrap-around.
-
-    int c = static_cast<int>(p.x) / blockSize;
-    int r = static_cast<int>(p.y) / blockSize;
+    sf::Vector2i indexes = ConvertCoordinates(p);
 
     // Grid cells with a # are walls.
-    return maze[r][c] != '#' && maze[r][c] != '=';
+    return maze[indexes.x][indexes.y] != '#' && maze[indexes.x][indexes.y] != '=';
 }
 
 void Pacman::UpdateAnimation(float deltaTime)
@@ -124,17 +123,14 @@ void Pacman::UpdateAnimation(float deltaTime)
 
 bool Pacman::MoveTo(float deltaTime)
 {
-    interpolationTimer = interpolationTimer + deltaTime;
+    interpolationTimer += deltaTime; //to track progress of interpolation time
 
     if (interpolationTime > 0.0f)
     {
-        float t = std::min(1.0f, interpolationTimer / interpolationTime);
-        sf::Vector2f newPosition = currentTile + t * (nextTile - currentTile);
+        float t = std::min(1.0f, interpolationTimer / interpolationTime); //how far pacman has moved between both tiles
+        sf::Vector2f newPosition = currentTile + t * (nextTile - currentTile); //the distance between the current and next tile; linear interpolation
         pacmanSprite.setPosition(WrapCoords(newPosition));
-
-
     }
-
     return interpolationTimer >= interpolationTime; 
 }
 
@@ -180,6 +176,11 @@ void Pacman::Move(float deltaTime)
     }
 
     UpdateAnimation(deltaTime);
+}
+
+sf::Vector2f Pacman::GetPosition()
+{
+    return pacmanSprite.getPosition();
 }
 
 void Pacman::Die()

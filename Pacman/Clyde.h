@@ -1,13 +1,11 @@
 #pragma once
 #include "Ghosts.h"
+#include "Blinky.h"
 
-class Clyde : Ghosts
+class Clyde : public Ghosts
 {
-private:
-	sf::Texture clydeTexture;
-	sf::Sprite clydeSprite;
 public:
-	void DrawClyde(sf::RenderWindow& window);
+	sf::Vector2f getTargetPosition(const sf::Vector2f& pacmanPos, const sf::Vector2f& pos2) const override; //overriding
 	Clyde();
 };
 

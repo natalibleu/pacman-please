@@ -1,12 +1,13 @@
 #include "Blinky.h"
+#include "Pacman.h"
+#include "Constants.h"
 
-void Blinky::DrawBlinky(sf::RenderWindow& window)
+Blinky::Blinky() : Ghosts("assets/blinky1.png", '0')
 {
-	window.draw(blinkySprite);
+
 }
 
-Blinky::Blinky() : blinkyTexture("assets/blinky1.png"), blinkySprite(blinkyTexture, sf::IntRect{ {0,0}, {32,32} })
+sf::Vector2f Blinky::getTargetPosition(const sf::Vector2f& pacmanPos, const sf::Vector2f& pos2) const
 {
-	//start position
-	MapSearch('0', blinkySprite);
+	return pacmanPos;
 }

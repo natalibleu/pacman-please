@@ -1,11 +1,15 @@
 #include "Pinky.h"
+#include "Pacman.h"
+#include "Constants.h"
 
-void Pinky::DrawPinky(sf::RenderWindow& window)
+sf::Vector2f Pinky::getTargetPosition(const sf::Vector2f& pacmanPos, const sf::Vector2f& pos2) const 
 {
-	window.draw(pinkySprite);
+	pacmanPos =  + sf::Vector2f(static_cast<float>(4 * blockSize), 0.f);
+
+	return sf::Vector2f(pacmanPos);
 }
 
-Pinky::Pinky() : pinkyTexture("assets/pinky1.png"), pinkySprite(pinkyTexture, sf::IntRect{ {0,0}, {32,32} })
+Pinky::Pinky() : Ghosts("assets/pinky1.png", '1')
 {
-	MapSearch('1', pinkySprite);
+	
 }

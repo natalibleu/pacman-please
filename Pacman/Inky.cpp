@@ -1,11 +1,16 @@
 #include "Inky.h"
 
-void Inky::DrawInky(sf::RenderWindow& window)
+bool Inky::Scatter()
 {
-	window.draw(inkySprite);
+	return true;
 }
 
-Inky::Inky() : inkyTexture("assets/inky1.png"), inkySprite(inkyTexture, sf::IntRect{ {0,0}, {32,32} })
+sf::Vector2f Inky::getTargetPosition(const sf::Vector2f& pacmanPos, const sf::Vector2f& pos2) const
 {
-	MapSearch('2', inkySprite);
+	return sf::Vector2f();
 }
+
+Inky::Inky() : Ghosts("assets/inky1.png", '2')
+{
+}
+

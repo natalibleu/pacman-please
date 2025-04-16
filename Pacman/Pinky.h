@@ -1,14 +1,10 @@
 #pragma once
 #include "Ghosts.h"
 
-class Pinky : Ghosts
+class Pinky : public Ghosts
 {
-private:
-	sf::Texture pinkyTexture;
-	sf::Sprite pinkySprite; 
-
 public:
-	void DrawPinky(sf::RenderWindow& window);
+	sf::Vector2f getTargetPosition(const sf::Vector2f& pacmanPos, const sf::Vector2f& pos2) const override; //overriding
 	Pinky();
 };
 
